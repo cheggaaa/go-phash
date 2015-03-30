@@ -20,6 +20,22 @@ ulong64 pc_dct_imagehash_Wrapper(const char *file) {
     return hash;
 }
 
+int ph_compare_images_Wrapper(const char *file1, const char *file2,double &pcc, double sigma, double gamma, int N,double threshold) {
+	cimg::exception_mode(0);
+	return ph_compare_images(file1,file2,pcc,sigma,gamma,N,threshold);
+}
+
+int ph_image_digest_Wrapper(const char *file, double sigma, double gamma, Digest &digest, int N){
+	cimg::exception_mode(0);
+	return ph_image_digest(file,sigma,gamma,digest,N);
+}
+
+
+int ph_crosscorr_Wrapper(const Digest &x,const Digest &y,double &pcc,double threshold){
+	cimg::exception_mode(0);
+	return ph_crosscorr(x,y,pcc,threshold);
+}
+
 #ifdef __cplusplus
 }
 #endif
